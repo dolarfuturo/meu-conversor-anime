@@ -143,7 +143,6 @@ def construir_mapa_base(circuito_key, clima_key):
     for p in pontos_pista:
         draw.ellipse((p[0] - r_p, p[1] - r_p, p[0] + r_p, p[1] + r_p), fill=dados_clima["asfalto"])
 
-    # Pit lane e boxes na reta principal
     pit_indices = list(range(4180, total_pts)) + list(range(0, 360))
     pit_pts, pit_borda_pts, boxes_pts = [], [], []
     for idx in pit_indices:
@@ -188,7 +187,6 @@ def construir_mapa_base(circuito_key, clima_key):
         p_lbl_box = boxes_pts[len(boxes_pts) // 2]
         draw.text((p_lbl_box[0] - 42, p_lbl_box[1] - 14), "BOXES", font=FONT_PISTA_LABEL, fill=(220, 230, 245))
 
-    # Linha de chegada quadriculada
     p_chegada = pontos_pista[IDX_CHEGADA]
     p_next = pontos_pista[(IDX_CHEGADA + 8) % total_pts]
     ang_chegada = math.atan2(p_next[1] - p_chegada[1], p_next[0] - p_chegada[0])
